@@ -11,7 +11,6 @@ menutext = (
     "Update an expense.\n"
     "Delete an expense.\n"
     "View summary of expenses.\n"
-    "View summary of expenses.\n"
     "View summary of expenses for specific month.\n"
     "Please choose an option:  "
 )
@@ -100,6 +99,19 @@ while menu != "exit":
                 writer.writerows(expenses)
             print("Expense deleted")
 
-
+    elif menu == "view summary of expenses":
+        with open(trackerdata, 'r', newline='') as file:
+            reader = csv.reader(file)
+            total = 0
+            count = 0
+            for row in reader:
+                try:
+                    amount = float(row[2])
+                    total += amount
+                    count += 1
+                except (ValueError, IndexError):
+                    continue
+        print(f"Total amount of expenses is ${total:.2f}")
+        print(f"Total number of records: {count}")
 
     menu = input(menutext).lower()
