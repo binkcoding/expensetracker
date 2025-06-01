@@ -114,4 +114,26 @@ while menu != "exit":
         print(f"Total amount of expenses is ${total:.2f}")
         print(f"Total number of records: {count}")
 
+    elif menu == "view summary of expenses for specific month":
+        target_month = input("Enter the month in format YYYY-MM: ")
+
+        with open(trackerdata, 'r', newline='') as file:
+            reader = csv.reader(file)
+            count = 0
+            total = 0
+
+            for row in reader:
+                try:
+                    date = row[1]
+                    amount = float(row[2])
+
+                    if date.startswith(target_month):
+                        total += amount
+                        count += 1
+                except (ValueError, IndexError):
+                    continue
+        print(f"Total expenses for {target_month}: ${total:.2f}")
+        print(f"Total number of records for {target_month}: {count}")
+
+
     menu = input(menutext).lower()
