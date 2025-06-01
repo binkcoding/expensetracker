@@ -94,10 +94,13 @@ while menu != "exit":
         if not found:
             print("Please enter valid ID to delete.")
         else:
+            for idx, expense in enumerate(expenses, start=1):
+                expense[0] = str(idx)
             with open(trackerdata, 'w', newline='') as file:
                 writer = csv.writer(file)
                 writer.writerows(expenses)
             print("Expense deleted")
+
 
     elif menu == "view summary of expenses":
         with open(trackerdata, 'r', newline='') as file:

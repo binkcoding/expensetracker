@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c028f79-ef65-4e6f-9c71-d266c4da983c" name="Changes" comment="created view summary of expenses function &#10;adding together the total expenses&#10;also including a count function for records">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6c028f79-ef65-4e6f-9c71-d266c4da983c" name="Changes" comment="created a final menu function for viewing summary of expenses for a specific month">
       <change beforePath="$PROJECT_DIR$/expensetracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/expensetracker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748755933372</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="created a final menu function for viewing summary of expenses for a specific month">
+      <option name="closed" value="true" />
+      <created>1748757281929</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1748757281929</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -150,6 +157,7 @@
     <MESSAGE value="used IDs to let user input which expense they would like to update&#10;added expense updating" />
     <MESSAGE value="created a delete function for the menu" />
     <MESSAGE value="created view summary of expenses function &#10;adding together the total expenses&#10;also including a count function for records" />
-    <option name="LAST_COMMIT_MESSAGE" value="created view summary of expenses function &#10;adding together the total expenses&#10;also including a count function for records" />
+    <MESSAGE value="created a final menu function for viewing summary of expenses for a specific month" />
+    <option name="LAST_COMMIT_MESSAGE" value="created a final menu function for viewing summary of expenses for a specific month" />
   </component>
 </project>
