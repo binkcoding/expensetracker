@@ -1,9 +1,8 @@
-#Initial Commit
-
 import csv
 from datetime import datetime
 import os
 
+#Menu as variable to reduce re printing
 trackerdata = "expensetracker.csv"
 menutext = (
     "Add a new expense.\n"
@@ -14,21 +13,23 @@ menutext = (
     "View summary of expenses for specific month.\n"
     "Please choose an option:  "
 )
+#Call back menu
 menu = input(menutext).lower()
 
+#Exiting option
 while menu != "exit":
     if menu == "add a new expense":
         try:
-            with open(trackerdata, 'r', newline='') as file:
+            with open(trackerdata, 'r', newline='') as file: #Open file to read
                 reader = csv.reader(file)
                 ids = [int(row[0]) for row in reader if row and row[0].isdigit()]
                 next_id = max(ids) + 1 if ids else 1
-        except FileNotFoundError:
+        except FileNotFoundError: #If file isn't found continue
             next_id = 1
         amount = float(input("What is the amount? "))
         category = input("What is the category? ").lower()
-        dateofentry = datetime.now().strftime("%Y-%m-%d %H:%M")
-        with open(trackerdata, 'a', newline='') as file:
+        dateofentry = datetime.now().strftime("%Y-%m-%d %H:%M") #Current date and time but not down to milliseconds
+        with open(trackerdata, 'a', newline='') as file: #Amend option to write to file
             writer = csv.writer(file)
             writer.writerow([next_id, dateofentry, amount, category])
         print("Expense added!")
@@ -59,6 +60,7 @@ while menu != "exit":
                 new_amount = input(f"Enter new amount or press enter to keep current expense at {expense[2]}: ")
                 new_category = input(f"Enter new category or press enter to keep current category at {expense[3]}: ")
 
+                #If anything was entered update to new input
                 if new_category:
                     expense[3] = new_category
                 if new_amount:
@@ -66,7 +68,7 @@ while menu != "exit":
 
                 expenses[i] = expense
                 break
-
+        #Error checking
         if not found:
             print("Expense ID not valid.")
         else:
@@ -83,18 +85,18 @@ while menu != "exit":
             print(f"Id: {row[0]} Date: {row[1]}, Amount: {row[2]}, Category: {row[3]}")
         delete_id = input("Which ID would you like to delete: ")
 
-
+        #Deleting ID
         found = False
         for i, expense in enumerate(expenses):
             if expense[0] == delete_id:
                 del expenses[i]
                 found = True
                 break
-
+        #Error Checking
         if not found:
             print("Please enter valid ID to delete.")
         else:
-            for idx, expense in enumerate(expenses, start=1):
+            for idx, expense in enumerate(expenses, start=1): #Using start 1 to ensure IDs are updated and accurate after deletion
                 expense[0] = str(idx)
             with open(trackerdata, 'w', newline='') as file:
                 writer = csv.writer(file)
@@ -106,7 +108,7 @@ while menu != "exit":
         with open(trackerdata, 'r', newline='') as file:
             reader = csv.reader(file)
             total = 0
-            count = 0
+            count = 0 #Created count to allow user to know how many records were used
             for row in reader:
                 try:
                     amount = float(row[2])
@@ -118,7 +120,7 @@ while menu != "exit":
         print(f"Total number of records: {count}")
 
     elif menu == "view summary of expenses for specific month":
-        target_month = input("Enter the month in format YYYY-MM: ")
+        target_month = input("Enter the month in format YYYY-MM: ") #Using display to ensure user input is correct format as the csv
 
         with open(trackerdata, 'r', newline='') as file:
             reader = csv.reader(file)
