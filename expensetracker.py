@@ -48,6 +48,33 @@ while menu != "exit":
         with open(trackerdata, 'r', newline='') as file:
             reader = csv.reader(file)
             expenses = list(reader)
+        for row in expenses:
+            print(f"Id: {row[0]} Date: {row[1]}, Amount: {row[2]}, Category: {row[3]}")
+        update_id = input("Which ID would you like to update: ")
+
+        found = False
+        for i, expense in enumerate(expenses):
+            if expense[0] == update_id:
+                found = True
+
+                new_amount = input(f"Enter new amount or press enter to keep current expense at {expense[2]}: ")
+                new_category = input(f"Enter new category or press enter to keep current category at {expense[3]}: ")
+
+                if new_category:
+                    expense[3] = new_category
+                if new_amount:
+                    expense[2] = new_amount
+
+                expenses[i] = expense
+                break
+
+        if not found:
+            print("Expense ID not valid.")
+        else:
+            with open(trackerdata, 'w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerows(expenses)
+            print("Expenses updated")
 
 
 
