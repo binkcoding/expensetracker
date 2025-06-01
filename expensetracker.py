@@ -76,8 +76,29 @@ while menu != "exit":
                 writer.writerows(expenses)
             print("Expenses updated")
 
+    elif menu == "delete an expense":
+        with open(trackerdata, 'r', newline='') as file:
+            reader = csv.reader(file)
+            expenses = list(reader)
+        for row in expenses:
+            print(f"Id: {row[0]} Date: {row[1]}, Amount: {row[2]}, Category: {row[3]}")
+        delete_id = input("Which ID would you like to delete: ")
 
 
+        found = False
+        for i, expense in enumerate(expenses):
+            if expense[0] == delete_id:
+                del expenses[i]
+                found = True
+                break
+
+        if not found:
+            print("Please enter valid ID to delete.")
+        else:
+            with open(trackerdata, 'w', newline='') as file:
+                writer = csv.writer(file)
+                writer.writerows(expenses)
+            print("Expense deleted")
 
 
 

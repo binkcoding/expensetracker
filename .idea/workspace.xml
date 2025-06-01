@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c028f79-ef65-4e6f-9c71-d266c4da983c" name="Changes" comment="added IDs to every expense entry">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6c028f79-ef65-4e6f-9c71-d266c4da983c" name="Changes" comment="used IDs to let user input which expense they would like to update&#10;added expense updating">
       <change beforePath="$PROJECT_DIR$/expensetracker.py" beforeDir="false" afterPath="$PROJECT_DIR$/expensetracker.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748752823682</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="used IDs to let user input which expense they would like to update&#10;added expense updating">
+      <option name="closed" value="true" />
+      <created>1748754912494</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1748754912494</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -123,6 +130,7 @@
     <MESSAGE value="Added menu option of adding an expense and writing to csv" />
     <MESSAGE value="Added menu option of viewing all expenses" />
     <MESSAGE value="added IDs to every expense entry" />
-    <option name="LAST_COMMIT_MESSAGE" value="added IDs to every expense entry" />
+    <MESSAGE value="used IDs to let user input which expense they would like to update&#10;added expense updating" />
+    <option name="LAST_COMMIT_MESSAGE" value="used IDs to let user input which expense they would like to update&#10;added expense updating" />
   </component>
 </project>
